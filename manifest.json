@@ -15,7 +15,8 @@
   "content_scripts": [
     {
       "matches": ["*://raven.cam.ac.uk/*"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "run_at": "document_start"
     }
   ]
 }
