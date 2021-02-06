@@ -1,15 +1,22 @@
 // content.js
-var images = document.getElementsByClassName("raven-logo");
 
 var replaceRavens = function () {
   chrome.storage.sync.get(
     {
-      ravenName: "rainbow-101",
+      ravenName: "rainbow",
     },
     function (items) {
-      for (var i = 0, l = images.length; i < l; i++) {
-        images[i].src = "/images/" + items.ravenName + ".png";
-      }
+      // Replace big raven.
+      $(".campl-content-container > .raven-logo").attr(
+        "src",
+        "/images/" + items.ravenName + "-101.png"
+      );
+
+      // Replace login raven.
+      $("fieldset > .raven-logo").attr(
+        "src",
+        "/images/" + items.ravenName + "-51.png"
+      );
     }
   );
 };
