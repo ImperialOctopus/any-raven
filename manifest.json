@@ -16,7 +16,7 @@
     {
       "matches": ["*://raven.cam.ac.uk/*"],
       "js": ["content.js"],
-      "run_at": "document_start"
+      "run_at": "document_end"
     }
   ]
 }
