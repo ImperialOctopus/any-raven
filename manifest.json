@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "AnyRaven",
+  "description": "Customise your Cambridge Raven login raven.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "assets/rainbow-101.png",
+    "default_popup": "options.html"
+  },
+
+  "permissions": ["storage"],
+
+  "content_scripts": [
+    {
+      "matches": ["*://raven.cam.ac.uk/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
