@@ -3,20 +3,22 @@
 var replaceRavens = function () {
   chrome.storage.sync.get(
     {
-      ravenName: "rainbow",
+      ravenName: "none",
     },
     function (items) {
-      // Replace big raven.
-      $(".campl-content-container > .raven-logo").attr(
-        "src",
-        "/images/" + items.ravenName + "-101.png"
-      );
+      if (items.ravenName != "none") {
+        // Replace big raven.
+        $(".campl-content-container > .raven-logo").attr(
+          "src",
+          "/images/" + items.ravenName + "-101.png"
+        );
 
-      // Replace login raven.
-      $("fieldset > .raven-logo").attr(
-        "src",
-        "/images/" + items.ravenName + "-51.png"
-      );
+        // Replace login raven.
+        $("fieldset > .raven-logo").attr(
+          "src",
+          "/images/" + items.ravenName + "-51.png"
+        );
+      }
     }
   );
 };
