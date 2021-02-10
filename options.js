@@ -1,5 +1,4 @@
 function save_options() {
-  console.log("Save");
   var ravenName = document.querySelector("input[name=raven]:checked").value;
   console.log(ravenName);
   chrome.storage.sync.set({
