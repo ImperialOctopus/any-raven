@@ -1,6 +1,14 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 16px;
+  width: 187px;
+}
+
+h2 {
+  margin: 0 0 5px 0;
+}
+
+p {
+  margin: 0 0 10px 0;
 }
 
 input[name="raven"] {
