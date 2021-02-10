@@ -1,5 +1,7 @@
 function save_options() {
-  var ravenName = document.getElementById("ravenSelector").value;
+  console.log("Save");
+  var ravenName = document.querySelector("input[name=raven]:checked").value;
+  console.log(ravenName);
   chrome.storage.sync.set({
     ravenName: ravenName,
   });
@@ -13,7 +15,8 @@ function restore_options() {
       ravenName: "gqven-101",
     },
     function (items) {
-      document.getElementById("ravenSelector").value = items.ravenName;
+      document.querySelector(`input[name=raven][value=${item}]:checked`).value =
+        items.ravenName;
     }
   );
 }
@@ -21,6 +24,6 @@ function restore_options() {
 document.addEventListener("DOMContentLoaded", function () {
   restore_options();
   document
-    .getElementById("ravenSelector")
+    .querySelector("input[name=raven]")
     .addEventListener("change", save_options);
 });

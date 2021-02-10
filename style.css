@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 16px;
+}
+
+input[name="raven"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+input[name="raven"] + img {
+  cursor: pointer;
+  width: 50px;
+  padding: 5px;
+}
+
+input[name="raven"]:checked + img {
+  outline: 2px solid #000;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
