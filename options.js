@@ -1,6 +1,5 @@
 function save_options() {
   var ravenName = document.querySelector("input[name=raven]:checked").value;
-  console.log(ravenName);
   chrome.storage.sync.set({
     ravenName: ravenName,
   });
@@ -11,11 +10,16 @@ function save_options() {
 function restore_options() {
   chrome.storage.sync.get(
     {
-      ravenName: "gqven-101",
+      ravenName: "none",
     },
-    function (items) {
-      document.querySelector(`input[name=raven][value=${item}]:checked`).value =
-        items.ravenName;
+    function (item) {
+      document
+        .querySelectorAll('input[type="radio"][name="raven"]')
+        .forEach((element) => {
+          if (element.value === item.ravenName) {
+            element.checked = true;
+          }
+        });
     }
   );
 }
@@ -23,6 +27,8 @@ function restore_options() {
 document.addEventListener("DOMContentLoaded", function () {
   restore_options();
   document
-    .querySelector("input[name=raven]")
-    .addEventListener("change", save_options);
+    .querySelectorAll('input[type="radio"][name="raven"]')
+    .forEach((element) => {
+      element.onclick = save_options;
+    });
 });
